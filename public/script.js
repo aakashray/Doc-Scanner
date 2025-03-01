@@ -68,8 +68,11 @@ function uploadDocument() {
     fetch(`/matches/${data.docId}`)
       .then(res => res.json())
       .then(matches => {
-        document.getElementById('credits').textContent = currentUser.credits - 1;
+        const creditsElement = document.getElementById('credits');
         currentUser.credits--;
+        creditsElement.textContent = currentUser.credits;
+        creditsElement.classList.add('bounce'); // Trigger bounce
+        setTimeout(() => creditsElement.classList.remove('bounce'), 500); // Remove after animation
         document.getElementById('matches').innerHTML = matches.map(m => 
           `<p>${m.filename} - Similarity: ${(m.similarity * 100).toFixed(2)}%</p>`
         ).join('');
@@ -86,37 +89,34 @@ function approveCredits(userId) {
   .then(res => res.json())
   .then(data => {
     alert(data.message || data.error);
-    updateDashboard(); // Refresh requests and analytics
+    updateDashboard();
   });
 }
 
 function updateDashboard() {
-    if (currentUser.role === 'admin') {
-      document.getElementById('admin').style.display = 'block';
-      fetch(`/admin/analytics?userId=${currentUser.id}`)
-        .then(res => res.json())
-        .then(data => {
-          document.getElementById('analytics').innerHTML = data.users.map(u => 
-            `<p>${u.username}: Credits: ${u.credits}, Scans: ${u.scans}</p>`
-          ).join('');
-        });
-      fetch('/credits/pending', {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
-      })
-        .then(res => res.json())
-        .then(data => {
-          console.log('Pending requests:', data); // Debug log
-          document.getElementById('creditRequests').innerHTML = data.map(r => 
-            `<p>User ${r.username} (ID: ${r.userId}) requests ${r.requestedCredits} credits 
-             <button onclick="approveCredits(${r.userId})">Approve</button></p>`
-          ).join('');
-        })
-        .catch(err => console.error('Fetch error:', err)); // Error log
-    }
+  if (currentUser.role === 'admin') {
+    document.getElementById('admin').style.display = 'block';
+    fetch(`/admin/analytics?userId=${currentUser.id}`)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('analytics').innerHTML = data.users.map(u => 
+          `<p>${u.username}: Credits: ${u.credits}, Scans: ${u.scans}</p>`
+        ).join('');
+      });
+    fetch('/credits/pending', {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('creditRequests').innerHTML = data.map(r => 
+        `<p>User ${r.username} (ID: ${r.userId}) requests ${r.requestedCredits} credits 
+         <button onclick="approveCredits(${r.userId})">Approve</button></p>`
+      ).join('');
+    });
   }
+}
 
-// New endpoint to fetch pending requests (add this to server.js too)
 app.get('/credits/pending', (req, res) => {
   db.all(`SELECT cr.userId, u.username, cr.requestedCredits 
           FROM credit_requests cr JOIN users u ON cr.userId = u.id 

@@ -6,13 +6,13 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="fade-in">
   <div class="wrapper">
     <header>
       <h1>Document Scanner</h1>
     </header>
     <main>
-      <section class="card" id="auth">
+      <section class="card slide-up" id="auth">
         <h2>Login</h2>
         <input type="text" id="username" placeholder="Username" class="input-field">
         <input type="password" id="password" placeholder="Password" class="input-field">
@@ -21,9 +21,9 @@
           <button onclick="showRegister()" class="btn btn-secondary">Register</button>
         </div>
       </section>
-      <section class="card" id="dashboard" style="display: none;">
+      <section class="card slide-up" id="dashboard" style="display: none;">
         <h2>Welcome, <span id="user"></span></h2>
-        <p class="credits">Credits: <span id="credits">20</span></p>
+        <p class="credits">Credits: <span id="credits" class="credits-value">20</span></p>
         <input type="file" id="fileInput" accept=".txt" class="input-field">
         <div class="button-group">
           <button onclick="uploadDocument()" class="btn btn-primary">Scan Document</button>
@@ -32,7 +32,7 @@
         </div>
         <div id="matches" class="matches"></div>
       </section>
-      <section class="card admin-card" id="admin" style="display: none;">
+      <section class="card admin-card slide-up" id="admin" style="display: none;">
         <h2>Admin Dashboard</h2>
         <div id="analytics" class="analytics"></div>
         <h3>Pending Credit Requests</h3>
