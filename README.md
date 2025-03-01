@@ -36,16 +36,6 @@ A **self-contained document scanning and matching system** with a built-in credi
 
 ---
 
-## 📸 Screenshots
-
-| Login Page | Dashboard | Admin Panel |
-|------------|-----------|-------------|
-| ![Login](public/Screenshot 2025-03-02 at 3.10.17 AM.png) | ![Dashboard](public/Screenshot 2025-03-02 at 3.11.16 AM.png) | ![Admin](public/Screenshot 2025-03-02 at 3.11.35 AM.png) |
-
-*(Replace placeholders with actual screenshots—see "Customization" below!)*
-
----
-
 ## 🎬 Demo
 
 1. **Login/Register**: Fade-in animation welcomes users.
