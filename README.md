@@ -1,6 +1,5 @@
 # Document Scanner 📜✨
 
-![Document Scanner Banner](https://via.placeholder.com/800x200.png?text=Document+Scanner+by+Aakash+Ray)
 
 A **self-contained document scanning and matching system** with a built-in credit system, designed for efficiency and scalability. Built with pure HTML, CSS, and Node.js, this project features AI-powered document matching using OpenAI embeddings, a sleek animated frontend, and a robust admin dashboard—all without relying on third-party frameworks.
 
@@ -41,7 +40,7 @@ A **self-contained document scanning and matching system** with a built-in credi
 
 | Login Page | Dashboard | Admin Panel |
 |------------|-----------|-------------|
-| ![Login](https://via.placeholder.com/250x150.png?text=Login+Screen) | ![Dashboard](https://via.placeholder.com/250x150.png?text=User+Dashboard) | ![Admin](https://via.placeholder.com/250x150.png?text=Admin+Dashboard) |
+| ![Login](public/Screenshot 2025-03-02 at 3.10.17 AM.png) | ![Dashboard](public/Screenshot 2025-03-02 at 3.11.16 AM.png) | ![Admin](public/Screenshot 2025-03-02 at 3.11.35 AM.png) |
 
 *(Replace placeholders with actual screenshots—see "Customization" below!)*
 
@@ -60,7 +59,7 @@ A **self-contained document scanning and matching system** with a built-in credi
 
 ### Prerequisites
 - [Node.js](https://nodejs.org) (v20.13.0 or later)
-- An [OpenAI API Key](https://platform.openai.com/signup) for AI matching
+- An [OpenAI API Key](https://platform.openai.com/signup) for AI matching (Open .env file and add the OpenAPI key there for smooth functioning)
 
 ### Installation
 1. **Clone the Repository**:
