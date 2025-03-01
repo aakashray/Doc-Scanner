@@ -4,32 +4,41 @@
   <meta charset="UTF-8">
   <title>Document Scanner</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Document Scanner</h1>
-    <div id="auth">
-      <h2>Login</h2>
-      <input type="text" id="username" placeholder="Username">
-      <input type="password" id="password" placeholder="Password">
-      <button onclick="login()">Login</button>
-      <button onclick="showRegister()">Register</button>
-    </div>
-    <div id="dashboard" style="display: none;">
-      <h2>Welcome, <span id="user"></span></h2>
-      <p>Credits: <span id="credits">20</span></p>
-      <input type="file" id="fileInput" accept=".txt">
-      <button onclick="uploadDocument()">Scan Document</button>
-      <div id="matches"></div>
-      <button onclick="requestCredits()">Request More Credits</button>
-      <button onclick="logout()">Logout</button>
-    </div>
-    <div id="admin" style="display: none;">
-      <h2>Admin Dashboard</h2>
-      <div id="analytics"></div>
-      <h3>Pending Credit Requests</h3>
-      <div id="creditRequests"></div>
-    </div>
+  <div class="wrapper">
+    <header>
+      <h1>Document Scanner</h1>
+    </header>
+    <main>
+      <section class="card" id="auth">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username" class="input-field">
+        <input type="password" id="password" placeholder="Password" class="input-field">
+        <div class="button-group">
+          <button onclick="login()" class="btn btn-primary">Login</button>
+          <button onclick="showRegister()" class="btn btn-secondary">Register</button>
+        </div>
+      </section>
+      <section class="card" id="dashboard" style="display: none;">
+        <h2>Welcome, <span id="user"></span></h2>
+        <p class="credits">Credits: <span id="credits">20</span></p>
+        <input type="file" id="fileInput" accept=".txt" class="input-field">
+        <div class="button-group">
+          <button onclick="uploadDocument()" class="btn btn-primary">Scan Document</button>
+          <button onclick="requestCredits()" class="btn btn-secondary">Request Credits</button>
+          <button onclick="logout()" class="btn btn-logout">Logout</button>
+        </div>
+        <div id="matches" class="matches"></div>
+      </section>
+      <section class="card admin-card" id="admin" style="display: none;">
+        <h2>Admin Dashboard</h2>
+        <div id="analytics" class="analytics"></div>
+        <h3>Pending Credit Requests</h3>
+        <div id="creditRequests" class="requests"></div>
+      </section>
+    </main>
   </div>
   <script src="script.js"></script>
 </body>
