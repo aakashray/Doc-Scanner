@@ -1,7 +1,7 @@
 # Document Scanner 📜✨
 
 
-A **self-contained document scanning and matching system** with a built-in credit system, designed for efficiency and scalability. Built with pure HTML, CSS, and Node.js, this project features AI-powered document matching using OpenAI embeddings, a sleek animated frontend, and a robust admin dashboard—all without relying on third-party frameworks.
+A **self-contained document scanning and matching system** with a built-in credit system, designed for efficiency and scalability. Built with pure HTML, CSS, and Node.js, this project features SENTENCE_TRANSFORMERS, a python library, a sleek animated frontend, and a robust admin dashboard—all without relying on third-party frameworks.
 
 ---
 
@@ -13,7 +13,7 @@ A **self-contained document scanning and matching system** with a built-in credi
   - Users can request additional credits; admins approve exact amounts.
 - **Document Scanning & Matching**:
   - Upload plain text files for scanning.
-  - AI-driven similarity matching using OpenAI’s `text-embedding-ada-002` model and cosine similarity (threshold: 0.8).
+  - Pre-trained embedding model(based on BERT) helps identify the matches. (threshold: 0.8).
 - **Smart Analytics Dashboard**:
   - Tracks scans, credits, and user activity for admins.
   - Displays pending credit requests with one-click approval.
@@ -31,7 +31,7 @@ A **self-contained document scanning and matching system** with a built-in credi
 | **Backend**   | Node.js (Express)             |
 | **Database**  | SQLite                        |
 | **File Storage** | Local filesystem (`uploads/`) |
-| **AI**        | OpenAI API (Embeddings)       |
+| **Local**        | Sentence_Transformer(Python library)       |
 | **Security**  | bcryptjs for password hashing |
 
 ---
@@ -49,10 +49,10 @@ A **self-contained document scanning and matching system** with a built-in credi
 
 ### Prerequisites
 - [Node.js](https://nodejs.org) (v20.13.0 or later)
-- An [OpenAI API Key](https://platform.openai.com/signup) for AI matching (Open .env file and add the OpenAPI key there for smooth functioning)
+- Python and Sentence_Transformers installed on your system (Write 'pip3 install sentence-transformers' in your terminal)
 
 ### Installation
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/doc-scanner.git
+   git clone https://github.com/aakashray/doc-scanner.git
    cd doc-scanner
