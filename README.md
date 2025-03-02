@@ -54,5 +54,5 @@ A **self-contained document scanning and matching system** with a built-in credi
 ### Installation
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/doc-scanner.git
+   git clone https://github.com/aakashray/doc-scanner.git
    cd doc-scanner
