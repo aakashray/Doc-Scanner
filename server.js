@@ -16,7 +16,7 @@ const upload = multer({ dest: 'uploads/' });
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// Initialize database tables (unchanged)
+// Initialize database tables 
 db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -74,7 +74,7 @@ async function getEmbedding(text) {
   });
 }
 
-// Cosine Similarity Function (unchanged)
+// Cosine Similarity Function 
 function cosineSimilarity(vecA, vecB) {
   const dotProduct = vecA.reduce((sum, a, i) => sum + a * vecB[i], 0);
   const normA = Math.sqrt(vecA.reduce((sum, a) => sum + a * a, 0));
